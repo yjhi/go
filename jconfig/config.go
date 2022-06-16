@@ -1,9 +1,7 @@
 package jconfig
 
 import (
-	"encoding/json"
 	"io/ioutil"
-	"os"
 )
 
 type Config struct {

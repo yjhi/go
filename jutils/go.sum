@@ -1,5 +1,4 @@
-github.com/yjhi/go v0.0.0-20211123094104-f62cea1c96e8 h1:opiIfKhkle2aQIsnIHVHHornXPXUQarvSW1VIIub0xA=
-github.com/yjhi/go/jerrors v0.0.0-20211123092420-22a84008fd42 h1:DoTTcjrXYY3m4dX0HICVIwnfOkbzRxn2lEiWLD3VPfQ=
-github.com/yjhi/go/jerrors v0.0.0-20211123092420-22a84008fd42/go.mod h1:AZIerz9u1u/ZfpiOsIxGhD2IRQ8eu+GRgKjQ5s/ornA=
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/yjhi/go/jerrors v0.0.0-20220616033442-0aa80abc2e43 h1:oRyo/vVV8VT5GiZXGnCqcuUvBcn6QcEJkRcXP+EQUTg=
+github.com/yjhi/go/jerrors v0.0.0-20220616033442-0aa80abc2e43/go.mod h1:Q6ycghPEvuDrHKFaiZeMJTnm6AZyAfnsO2tTRnlOZnc=

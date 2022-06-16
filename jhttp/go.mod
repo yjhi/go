@@ -1,5 +1,5 @@
-module github.com/yjhi/go/jhttp
+module jhttp
 
 go 1.16
 
-require github.com/yjhi/go/jerrors v0.0.0-20211124071526-00e44be98510
+require github.com/yjhi/go/jerrors v0.0.0-20220616033442-0aa80abc2e43
