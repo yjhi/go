@@ -1,4 +1,4 @@
-module jutils
+module github.com/yjhi/go/jutils
 
 go 1.16
 

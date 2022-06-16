@@ -1,4 +1,4 @@
-module jhttp
+module github.com/yjhi/go/jhttp
 
 go 1.16
 
