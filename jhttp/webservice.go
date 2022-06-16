@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yjhi/golib/jerrors"
+	"github.com/yjhi/go/jerrors"
 )
 
 func _webService1(url string, fullbody string, errname string) (string, error) {

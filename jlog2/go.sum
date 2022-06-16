@@ -1,4 +1,4 @@
-github.com/yjhi/golib v1.1.1 h1:Mb+9k/fEdc7Veym4Gxifa/bzjeybjnPSB6LubvpdSmw=
+github.com/yjhi/go v1.1.1 h1:Mb+9k/fEdc7Veym4Gxifa/bzjeybjnPSB6LubvpdSmw=
 github.com/yjhi/go/jlog v0.0.0-20211210054824-e13bdbaed8db h1:/eltTlzDQcCUG882DSMFAxnSUmTO2X7wCmgOwjv2PGA=
 github.com/yjhi/go/jlog v0.0.0-20211210054824-e13bdbaed8db/go.mod h1:Hg4jPB6tOk+1X+lbD2qwUQqRyS3efgnEGpUIJyJTQgY=
 github.com/yjhi/go/jtime v0.0.0-20211123092420-22a84008fd42 h1:CDXGKHMzri3BpISXqcH70zphfzEHJB/XTLg+6yxGHLg=
