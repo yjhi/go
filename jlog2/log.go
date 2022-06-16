@@ -1,6 +1,6 @@
 package jlog2
 
-import "github.com/yjhi/golib/jlog"
+import "github.com/yjhi/go/jlog"
 
 var LogRoot string = "logs"
 var LogName string = "day"
