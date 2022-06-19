@@ -1,0 +1,4 @@
+github.com/yjhi/go/jlog v0.0.0-20220616054434-8c66d1cf137f h1:pPqIDLLT4+QOuVuSP4yJTQa4R2hJO3yMeJQDZ+6SmPY=
+github.com/yjhi/go/jlog v0.0.0-20220616054434-8c66d1cf137f/go.mod h1:6U/jn3Ykgz3fr+aNk7aOAXcIjmOqVJm3crUOaYBE+7k=
+github.com/yjhi/go/jtime v0.0.0-20220616033442-0aa80abc2e43 h1:ARqNcUWbgElTXo8AHP2ZqXgqzDUy6uerskBFnIfxIhc=
+github.com/yjhi/go/jtime v0.0.0-20220616033442-0aa80abc2e43/go.mod h1:F1MiBtijGBg6eeY/Vybc3m1ZZdjciJ/XDlDbc51R0CE=
