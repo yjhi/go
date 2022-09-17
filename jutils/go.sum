@@ -1,4 +1,4 @@
-gitee.com/yjhi/go v1.0.2 h1:qw9s1IhEbYN/8ViNL7DBdu7RYElzYECe3HA3WOmpy3E=
-gitee.com/yjhi/go/jerrors v1.0.2 h1:ZWD7A3HpWlxR7pn5BTjjUP5LAMRmlM+euEpmHagg9bU=
+gitee.com/yjhi/go/jerrors v0.0.0-20220917082633-9e713978fb08 h1:GSwUy3fj5cWlLL+36RZqfYZsmJqFtGm5wJiWNgYO/R8=
+gitee.com/yjhi/go/jerrors v0.0.0-20220917082633-9e713978fb08/go.mod h1:BDs1rorjjIorv1+o0VRT5KTligBsFdFCs/4sQSBzkbs=
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
