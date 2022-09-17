@@ -1,0 +1,4 @@
+gitee.com/yjhi/go v1.0.1 h1:sFBvCbejQEZc58uje5YxZdKpzdLD5Rw/3E/O8FNQvY4=
+gitee.com/yjhi/go/jerrors v0.0.0-20220917081631-08a3979f707c h1:Awn88UfPAAHzxCL89YFasuMJYMbaGzDhI5dJH8LUsaY=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
