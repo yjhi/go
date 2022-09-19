@@ -33,7 +33,12 @@ del go.sum
 echo "%host%/jconfig" | ..\GoMod.bat
 cd ..
 
-
+echo ---------------------------------------------------------
+cd jdir
+del go.mod
+del go.sum
+echo "%host%/jdir" | ..\GoMod.bat
+cd ..
 
 echo ---------------------------------------------------------
 cd jerrors

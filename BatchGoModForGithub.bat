@@ -1,2 +1,3 @@
 @echo off
-echo "github.com/yjhi/go" | BatchGoMod.bat
+echo github.com/yjhi/go| BatchGoMod.bat
+pause

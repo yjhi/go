@@ -1,3 +1,4 @@
 @echo off
-echo "gitee.com/yjhi/go" | BatchGoMod.bat
+echo gitee.com/yjhi/go| BatchGoMod.bat
+pause
 
