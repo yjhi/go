@@ -2,17 +2,13 @@
 
 this is a go lib.
 
-### jlog
+### jtime
 
 ```go
-
 //example1
-```go
-
 timeUtil:=BuildTimeUtils()
-
-
 ```
+
 
 ### jhttp
 
@@ -23,9 +19,8 @@ if client == nil {
 	fmt.Println("ERR:Client NIL")
 	return
 }
-client.SetHeader("User-Agent", strNowUA)
-client.AddCookie("name", value, "/", domain)
-body, err := client.Do()
+client.AetHeader("User-Agent", strNowUA).AddCookie("name", value, "/", domain)
+body, err := client.SendRequest()
 if err != nil {
 	return ""
 }
@@ -33,7 +28,6 @@ if err != nil {
 ......
 
 //example2
-
 client := jhttp.CreateGet("https://v.sogou.com/?forceredirect=2&ie=utf8", timeout)
 
 if client == nil {
@@ -41,9 +35,8 @@ if client == nil {
 	return
 }
 
-client.SetHeader("User-Agent", ua)
-
-resp, err := client.DoWithResp()
+client.AetHeader("User-Agent", strNowUA).AddCookie("name", value, "/", domain)
+resp, err := client.SendRequestWithResp()
 
 if err != nil {
 	fmt.Println("ERR:" + err.Error())
@@ -98,5 +91,5 @@ PS F:\yjh201960613\yjhgo\golib\test> go run main.go
 2021-06-30 15:38:45
 2021-06-30 15:38:51
 OK:10000000,ERR:0
-
 ```
+

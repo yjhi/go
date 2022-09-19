@@ -1,4 +1,4 @@
-/*
+/****************************************************************************
 MIT License
 
 Copyright (c) 2022 yjhi
@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+*****************************************************************************/
 package jlog2
 
 import "gitee.com/yjhi/go/jlog"
@@ -28,33 +28,28 @@ import "gitee.com/yjhi/go/jlog"
 var LogRoot string = "logs"
 var LogName string = "day"
 var LogTail string = "log"
+
 var _logUtil *jlog.LogUtils = nil
 
-func _initLog() {
+func _initLog() *jlog.LogUtils {
 	if _logUtil == nil {
 		_logUtil = jlog.BuildDayLogUtils(LogRoot, LogName, LogTail)
 	}
+
+	return _logUtil
 }
 
 func LogDebug(text string) {
-	_initLog()
-
-	_logUtil.Debug(text)
+	_initLog().Debug(text)
 }
 
 func LogInfo(text string) {
-	_initLog()
-
-	_logUtil.Info(text)
+	_initLog().Info(text)
 }
 func LogError(text string) {
-	_initLog()
-
-	_logUtil.Error(text)
+	_initLog().Error(text)
 }
 
 func LogWarn(text string) {
-	_initLog()
-
-	_logUtil.Warn(text)
+	_initLog().Warn(text)
 }

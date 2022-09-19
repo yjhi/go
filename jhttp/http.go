@@ -1,4 +1,4 @@
-/*
+/****************************************************************************
 MIT License
 
 Copyright (c) 2022 yjhi
@@ -20,69 +20,43 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+*****************************************************************************/
 
 package jhttp
 
 import (
-	"io/ioutil"
 	"net/http"
-	"time"
-
-	"gitee.com/yjhi/go/jerrors"
 )
 
+///Add By yjh 2021-06-17
 type Http struct {
-	Client  *http.Client
-	Error   string
-	Request *http.Request
-	IsOk    bool
+	Client    *http.Client
+	Error     string
+	Request   *http.Request
+	httpError error
+	isOk      bool
 }
 
-func Create(url string, secondtimeout int, way string) *Http {
-	return New(url, secondtimeout, way)
+func New(url string, timeoutSecond int, way string) *Http {
+	return _buildHttp(url, timeoutSecond, way)
 }
 
-func New(url string, secondtimeout int, way string) *Http {
+func Create(url string, timeoutSecond int, way string) *Http {
+	return _buildHttp(url, timeoutSecond, way)
+}
+func CreateGet(url string, timeoutSecond int) *Http {
 
-	h := &Http{
-		Client:  nil,
-		Request: nil,
-		Error:   "",
-		IsOk:    false,
-	}
-
-	h.Client = &http.Client{
-		Timeout: time.Duration(secondtimeout) * time.Second,
-	}
-
-	var err error
-
-	h.Request, err = http.NewRequest(way, url, nil)
-
-	if err != nil {
-		h.Error = err.Error()
-		return h
-	}
-
-	h.IsOk = true
-
-	return h
+	return Create(url, timeoutSecond, "GET")
 }
 
-func CreateGet(url string, secondtimeout int) *Http {
+func CreatePOST(url string, timeoutSecond int) *Http {
 
-	return Create(url, secondtimeout, "GET")
-}
-
-func CreatePOST(url string, secondtimeout int) *Http {
-
-	return Create(url, secondtimeout, "POST")
+	return Create(url, timeoutSecond, "POST")
 }
 
 func (h *Http) AddCookie(name string, value string, path string, domain string) *Http {
 
-	if h.IsOk {
+	if h.isOk {
 		h.Request.AddCookie(&http.Cookie{
 			Name:   name,
 			Value:  value,
@@ -93,68 +67,24 @@ func (h *Http) AddCookie(name string, value string, path string, domain string) 
 
 	return h
 }
-
-func (h *Http) SetHeader(name string, value string) *Http {
-	if h.IsOk {
+func (h *Http) AddHeader(name string, value string) *Http {
+	if h.isOk {
 		h.Request.Header.Set(name, value)
 	}
 
 	return h
 }
 
-func (h *Http) Do() (string, error) {
-
-	if h.IsOk {
-		resp, err := h.Client.Do(h.Request)
-		if err != nil {
-			return "", err
-		}
-
-		defer resp.Body.Close()
-		bodyContent, errret := ioutil.ReadAll(resp.Body)
-
-		if errret != nil {
-			return "", errret
-		}
-
-		return string(bodyContent), nil
-
-	} else {
-
-		return "", jerrors.NewError("Http 初始化失败")
-	}
-
+func (h *Http) SetHeader(name string, value string) *Http {
+	return h.AddHeader(name, value)
 }
 
-func (h *Http) DoWithoutBody() error {
-
-	if h.IsOk {
-		_, err := h.Client.Do(h.Request)
-		if err != nil {
-			return err
-		}
-		return nil
-
-	} else {
-
-		return jerrors.NewError("Http 初始化失败")
-	}
-
+func (h *Http) SendRequest() (string, error) {
+	return h._do()
 }
-
-func (h *Http) DoWithResp() (*HttpResp, error) {
-
-	s := &HttpResp{
-		Response: nil,
-	}
-
-	var err error
-
-	s.Response, err = h.Client.Do(h.Request)
-
-	if err != nil {
-		return nil, err
-	}
-
-	return s, nil
+func (h *Http) SendRequestWithoutBody() (int, error) {
+	return h._doWithoutBody()
+}
+func (h *Http) SendRequestWithResp() (*HttpResp, error) {
+	return h._doWithResp()
 }

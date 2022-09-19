@@ -24,7 +24,7 @@
 
 
 
-set host="gitee.com/yjhi/go"
+set /p host=Input Host
 
 echo ---------------------------------------------------------
 cd jconfig

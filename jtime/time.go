@@ -1,4 +1,4 @@
-/*
+/****************************************************************************
 MIT License
 
 Copyright (c) 2022 yjhi
@@ -20,11 +20,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+*****************************************************************************/
 
 package jtime
-
-import "time"
 
 // parse time utils
 // add by yjh 211124
@@ -62,42 +60,4 @@ func (t TimeUtils) DateWithFmt(f string) string {
 }
 func (t TimeUtils) DateTimeWithFmt(f string) string {
 	return _timeStr(_formatDateTimeParse(f))
-}
-
-// count time
-// add by yjh 211125
-type TimeCount struct {
-	_startTime time.Time
-	_stopTime  time.Time
-}
-
-func (t *TimeCount) Start() {
-	t._startTime = time.Now()
-}
-
-func (t *TimeCount) Minutes() float64 {
-	t._stopTime = time.Now()
-
-	return t._stopTime.Sub(t._startTime).Minutes()
-}
-func (t *TimeCount) Seconds() float64 {
-	t._stopTime = time.Now()
-
-	return t._stopTime.Sub(t._startTime).Seconds()
-}
-func (t *TimeCount) Hours() float64 {
-	t._stopTime = time.Now()
-
-	return t._stopTime.Sub(t._startTime).Hours()
-}
-
-func (t *TimeCount) Microseconds() int64 {
-	t._stopTime = time.Now()
-
-	return t._stopTime.Sub(t._startTime).Microseconds()
-}
-func (t *TimeCount) Milliseconds() int64 {
-	t._stopTime = time.Now()
-
-	return t._stopTime.Sub(t._startTime).Milliseconds()
 }

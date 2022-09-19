@@ -26,43 +26,88 @@ package jhttp
 import (
 	"io/ioutil"
 	"net/http"
-	"strings"
+	"time"
 )
 
-func Get(url string) (string, error) {
-	resp, err1 := http.Get(url)
+func _buildHttp(url string, timeoutSecond int, way string) *Http {
 
-	if err1 != nil {
-		return "", err1
+	h := &Http{
+		Client:  nil,
+		Request: nil,
+		Error:   "",
+		isOk:    false,
 	}
 
-	defer resp.Body.Close()
-
-	body, err2 := ioutil.ReadAll(resp.Body)
-
-	if err2 != nil {
-		return "", err2
+	h.Client = &http.Client{
+		Timeout: time.Duration(timeoutSecond) * time.Second,
 	}
-	return string(body), nil
+
+	h.Request, h.httpError = http.NewRequest(way, url, nil)
+
+	if h.httpError != nil {
+		h.Error = h.httpError.Error()
+		return h
+	}
+
+	h.isOk = true
+
+	return h
 }
 
-func PostJson(url string, d string) (string, error) {
-	return Post(url, "application/json", d)
+func (h *Http) _do() (string, error) {
+
+	if h.isOk {
+		resp, err := h.Client.Do(h.Request)
+		if err != nil {
+			return "", err
+		}
+
+		defer resp.Body.Close()
+		bodyContent, errRet := ioutil.ReadAll(resp.Body)
+
+		if errRet != nil {
+			return "", errRet
+		}
+
+		return string(bodyContent), nil
+
+	} else {
+
+		return "", h.httpError
+	}
+
 }
 
-func Post(url string, t string, d string) (string, error) {
-	resp, err := http.Post(url, "application/json", strings.NewReader(d))
+func (h *Http) _doWithoutBody() (int, error) {
+
+	if h.isOk {
+		resp, err := h.Client.Do(h.Request)
+		if err != nil {
+			return -1, err
+		}
+
+		return resp.StatusCode, nil
+
+	} else {
+
+		return -1, h.httpError
+	}
+
+}
+
+func (h *Http) _doWithResp() (*HttpResp, error) {
+
+	s := &HttpResp{
+		Response: nil,
+	}
+
+	var err error
+
+	s.Response, err = h.Client.Do(h.Request)
 
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	defer resp.Body.Close()
-	body, err2 := ioutil.ReadAll(resp.Body)
-
-	if err2 != nil {
-		return "", err2
-	}
-	return string(body), nil
-
+	return s, nil
 }
